@@ -1,9 +1,14 @@
 from fastapi import FastAPI
 app = FastAPI()
 
-@app.get('/')
-def index():
-    return {"data": "Blog List"}
+@app.get('/blog')
+def index(limit: int,published: bool):
+    if published:
+        for i in range(limit):
+            yield {'Published item': i}
+    else:
+        for i in range(limit):
+            yield {'Unpublished item': i}
 
 # Beware in dynamic routing, move static above dynamic ones
 
