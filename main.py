@@ -3,9 +3,9 @@ app = FastAPI()
 
 @app.get('/')
 def index():
-    return {"message": "Hello World"}
+    return {"data": "Ravi Kumar"}
 
 
-@app.get('/items/{item_id}')
-def read_item(item_id: int):
-    return {"item_id": item_id}
+@app.get('/about')
+def about():
+    return {"About Me": "I am a developer"}
